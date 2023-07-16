@@ -15,7 +15,7 @@ function renderTable() {
   		</thead>
 			<tbody id="tableBody" class="bg-white text-black">
 			</tbody>`;
-		linkArray.forEach((array) => {
+		linkArray.reverse().forEach((array) => {
 			document.querySelector("#tableBody").innerHTML += `
     		<tr class="bg-[#1C283F] border-b-2 border-[#0B101B]">
     		  <td class="px-4 text-[#C9CED6]">
