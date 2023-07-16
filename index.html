@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
-		<link rel="stylesheet" href="./src/style.css" />
+		<link rel="stylesheet" href="./src/style/tailwind.css" />
 		<link
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
@@ -12,13 +12,14 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
+		<script type="module" src="./src/script/main.js"></script>
 		<title>Vite App</title>
 	</head>
 	<body
-		class="bg-[url('./swirl.svg')] bg-[#0B101B] bg-cover bg-center bg-no-repeat h-[100vh] text-[#C9CED6]"
+		class="bg-[url('../img/swirl.svg')] bg-[#0B101B] bg-cover bg-center bg-no-repeat h-[100vh] text-[#C9CED6]"
 	>
-		<div id="app">
-			<header>
+		<div id="app" class="flex flex-col items-center">
+			<header class="self-start">
 				<span
 					class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#EB568E] to-[#144EE3]"
 					>Linkly</span
@@ -36,28 +37,35 @@
 					Linkly is an efficient and easy-to-use URL shortening service
 					that streamlines your online experience.
 				</h2>
-				<div
+				<form
 					class="bg-[#181E29] border-4 border-[#353C4A] rounded-[48px] py-1 pr-1 pl-4 grid grid-cols-[auto,1fr,auto] md:grid-cols-[auto,400px,auto]"
 				>
 					<span class="material-symbols-outlined self-center">link</span>
 					<input
+						id="link"
 						type="text"
-						class="bg-transparent focus:outline-none"
+						class="bg-transparent focus:outline-none pl-4"
 						placeholder="Enter the link here"
 					/>
 					<button
+						id="shorten"
 						class="hidden sm:block text-white rounded-[48px] bg-[#144EE3] py-5 px-6"
 					>
 						Shorten Now!
 					</button>
 					<button
+						id="shorten"
 						class="sm:hidden text-white rounded-[48px] bg-[#144EE3] py-4 px-6 min-w-[70px]"
+						type="button"
 					>
 						->
 					</button>
-				</div>
+				</form>
 			</main>
+			<table
+				id="table"
+				class="table-auto bg-[#181E29] rounded mt-12 border-spacing min-w-[50vw] max-w-[75vw]"
+			></table>
 		</div>
 	</body>
 </html>
-<!-- #144EE3, #EB568E, #A353AA, #144EE3 -->
