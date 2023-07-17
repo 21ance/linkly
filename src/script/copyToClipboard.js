@@ -1,9 +1,12 @@
+import renderCopiedLink from "./render/renderCopiedLink";
+
 async function copyToClipboard(text) {
 	try {
 		await navigator.clipboard.writeText(text);
-		console.log(`Content copied to clipboard: ${text}`);
-	} catch (err) {
-		console.error("Failed to copy: ", err);
+		renderCopiedLink();
+		console.log(`copied to clipboard: ${text}`);
+	} catch (error) {
+		console.error(`unable to copy: , ${error}`);
 	}
 }
 

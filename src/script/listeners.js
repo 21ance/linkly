@@ -1,5 +1,6 @@
-import fetchLink from "./fetch";
+import { fetchLink, downloadImage } from "./fetch";
 import copyToClipboard from "./copyToClipboard";
+import { renderModal, closeModal } from "./render/renderModal";
 
 (() => {
 	const shortenBtn = document.querySelector("#shorten");
@@ -18,6 +19,19 @@ import copyToClipboard from "./copyToClipboard";
 					`#tableBody > tr:nth-child(${target.parentElement.parentElement.parentElement.dataset.index}) button > span`
 				).textContent
 			);
+		}
+
+		if (target.classList.contains("qr-code")) {
+			renderModal(target.src);
+		}
+
+		if (target.id === "QRDownload") {
+			downloadImage(document.querySelector("#modalQR").src);
+			closeModal();
+		}
+
+		if (target.id === "modal") {
+			closeModal();
 		}
 	});
 })();

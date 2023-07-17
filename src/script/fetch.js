@@ -17,11 +17,13 @@ async function fetchLink(link) {
 	};
 
 	if (link === "") {
-		renderLinkError("Please enter a link to shorten*");
+		renderLinkError("Please enter a link to shorten");
 		return;
 	}
 	if (!link.includes(".")) {
-		renderLinkError("Please enter a valid link, eg: google.com*");
+		renderLinkError(
+			"Please enter a valid link, eg: https://www.google.com/"
+		);
 		return;
 	}
 	resetLinkError();
@@ -39,12 +41,13 @@ async function fetchLink(link) {
 		if (JSON.parse(localStorage.getItem("links")) !== null) {
 			linkArray = JSON.parse(localStorage.getItem("links"));
 		}
-
 		linkArray.push(newLink);
+
 		localStorage.setItem("links", JSON.stringify(linkArray));
 		renderTable();
 	} catch (error) {
-		return error;
+		console.log(error);
+		return renderLinkError(error);
 	}
 }
 
@@ -55,4 +58,23 @@ function fetchQR(link) {
 	return qr + link;
 }
 
-export default fetchLink;
+// https://bobbyhadz.com/blog/javascript-download-image
+async function downloadImage(imageSrc, name = "QR.png") {
+	const response = await fetch(imageSrc);
+
+	const blobImage = await response.blob();
+
+	const href = URL.createObjectURL(blobImage);
+
+	const anchorElement = document.createElement("a");
+	anchorElement.href = href;
+	anchorElement.download = name;
+
+	document.body.appendChild(anchorElement);
+	anchorElement.click();
+
+	document.body.removeChild(anchorElement);
+	window.URL.revokeObjectURL(href);
+}
+
+export { fetchLink, downloadImage };
