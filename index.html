@@ -31,7 +31,7 @@
 				<h1
 					class="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#144EE3] via-[#EB568E] to-[#144EE3] pb-4"
 				>
-					Shorten Your Loooong Links :)
+					Shorten Your Long Links
 				</h1>
 				<h2 class="w-[32ch] md:w-[65ch]">
 					Linkly is an efficient and easy-to-use URL shortening service
@@ -46,6 +46,7 @@
 						type="text"
 						class="bg-transparent focus:outline-none pl-4"
 						placeholder="Enter the link here"
+						autocomplete="off"
 					/>
 					<button
 						id="shorten"
@@ -55,11 +56,9 @@
 						<span class="md:hidden">-></span>
 					</button>
 				</form>
+				<p id="invalidLink" class="text-red-600"></p>
 			</main>
-			<table
-				id="table"
-				class="table-fixed bg-[#181E29] rounded mt-12 border-spacin"
-			></table>
+			<table id="table" class="table-fixed rounded mt-12 relative"></table>
 		</div>
 	</body>
 </html>

@@ -1,4 +1,5 @@
-import renderTable from "./renderTable";
+import renderTable from "./render/renderTable";
+import { renderLinkError, resetLinkError } from "./render/renderLinkError";
 
 async function fetchLink(link) {
 	const url = "https://url-shortener23.p.rapidapi.com/shorten";
@@ -14,6 +15,16 @@ async function fetchLink(link) {
 			url: link,
 		}),
 	};
+
+	if (link === "") {
+		renderLinkError("Please enter a link to shorten*");
+		return;
+	}
+	if (!link.includes(".")) {
+		renderLinkError("Please enter a valid link, eg: google.com*");
+		return;
+	}
+	resetLinkError();
 
 	try {
 		const response = await fetch(url, options);
