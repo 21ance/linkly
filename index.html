@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="px-8 py-4">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -16,7 +16,7 @@
 		<title>Vite App</title>
 	</head>
 	<body
-		class="bg-[url('../img/swirl.svg')] bg-[#0B101B] bg-cover bg-center bg-no-repeat h-[100vh] text-[#C9CED6]"
+		class="bg-[url('../img/swirl.svg')] bg-[#0B101B] bg-cover bg-center bg-no-repeat text-[#C9CED6] h-screen px-8 py-4"
 	>
 		<div id="app" class="flex flex-col items-center relative">
 			<header class="self-start">
@@ -50,7 +50,7 @@
 					/>
 					<button
 						id="shorten"
-						class="text-white rounded-[48px] bg-[#144EE3] py-5 px-6 min-w-[70px]"
+						class="text-white rounded-[48px] bg-[#144EE3] py-5 px-6 min-w-[70px] duration-200 lg:hover:bg-[#144EE3]/80"
 					>
 						<span class="hidden md:block">Shorten Now!</span>
 						<span class="md:hidden">-></span>
@@ -60,14 +60,19 @@
 			</main>
 			<table id="table" class="table-fixed rounded mt-12 relative"></table>
 			<span
-				id="copied"
+				id="notification"
 				class="fixed right-4 md:right-8 md:top-8 bg-[#181E29] px-8 py-4 rounded hidden"
-				>Copied link to clipboard
+			>
 			</span>
 			<div
 				id="modal"
 				class="fixed bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full items-center justify-center mt-[-15px] hidden"
-			></div>
+			>
+				<div
+					id="modalBody"
+					class="bg-white p-3 md:p-6 rounded flex flex-col justify-center gap-4 text-black"
+				></div>
+			</div>
 		</div>
 	</body>
 </html>

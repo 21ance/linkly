@@ -1,6 +1,11 @@
 import { fetchLink, downloadImage } from "./fetch";
 import copyToClipboard from "./copyToClipboard";
-import { renderModal, closeModal } from "./render/renderModal";
+import {
+	renderQRModal,
+	renderRemoveLinkModal,
+	closeModal,
+} from "./render/renderModal";
+import removeLink from "./removeLink";
 
 (() => {
 	const shortenBtn = document.querySelector("#shorten");
@@ -21,8 +26,21 @@ import { renderModal, closeModal } from "./render/renderModal";
 			);
 		}
 
+		if (target.parentElement.classList.contains("remove-link")) {
+			renderRemoveLinkModal(
+				target.dataset.shorten,
+				target.dataset.original,
+				target.parentElement.parentElement.parentElement.dataset.index - 1
+			);
+		}
+
+		if (target.id === "removeLink") {
+			removeLink(target.dataset.index);
+			closeModal();
+		}
+
 		if (target.classList.contains("qr-code")) {
-			renderModal(target.src);
+			renderQRModal(target.src);
 		}
 
 		if (target.id === "QRDownload") {
@@ -30,7 +48,10 @@ import { renderModal, closeModal } from "./render/renderModal";
 			closeModal();
 		}
 
-		if (target.id === "modal") {
+		if (
+			target.id === "modal" ||
+			target.classList.contains("close-modal")
+		) {
 			closeModal();
 		}
 	});

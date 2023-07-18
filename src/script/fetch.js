@@ -20,10 +20,8 @@ async function fetchLink(link) {
 		renderLinkError("Please enter a link to shorten");
 		return;
 	}
-	if (!link.includes(".")) {
-		renderLinkError(
-			"Please enter a valid link, eg: https://www.google.com/"
-		);
+	if (!link.includes(".") || !link.includes("https://")) {
+		renderLinkError("Please enter a valid link, eg: https://google.com/");
 		return;
 	}
 	resetLinkError();
