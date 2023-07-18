@@ -1,3 +1,6 @@
+import clipboard from "../../img/clipboard.svg";
+import close from "../../img/close.svg";
+
 function renderTable() {
 	const linkArray = JSON.parse(localStorage.getItem("links"));
 	if (linkArray === null || linkArray.length === 0) {
@@ -20,12 +23,12 @@ function renderTable() {
     		<tr class="bg-[#1C283F] border-b-2 border-[#0B101B]" data-index=${count++}>
     		  <td class="px-2 md:px-4 text-[#C9CED6] flex gap-1 h-[93px] justify-center items-center">
 						<button class="duration-200 lg:hover:scale-[1.3] remove-link w-[2ch]" title="Remove link"> 
-							<img src="./src/img/close.svg" width="20px" height="20px" alt="remove link" 
+							<img src=${close} width="20px" height="20px" alt="remove link" 
 								data-shorten=${item.shorten} data-original=${item.original}>
 						</button>
 						<button class="flex gap-1 shorten-link w-[23ch] justify-start duration-200 lg:hover:scale-[1.02]" title="Copy to clipboard">
 							<span>${item.shorten}</span>
-							<img src="./src/img/clipboard.svg" width="20px" height="20px" alt="clipboard"/>
+							<img src=${clipboard} width="20px" height="20px" alt="clipboard"/>
 						</button>
 					</td>
     		  <td class="px-2 md:px-4 text-[#C9CED6] hidden md:table-cell"><span class="block truncate md:max-w-[35ch]">${
