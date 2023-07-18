@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/linkly/vite.svg" />
+		
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		
+		<title>Vite App</title>
+		<script type="module" crossorigin src="/linkly/assets/index-b130b9d1.js"></script>
+		<link rel="stylesheet" href="/linkly/assets/index-737c5119.css">
+	</head>
+	<body
+		class="bg-[url('../img/swirl.svg')] bg-[#0B101B] bg-cover bg-center bg-no-repeat text-[#C9CED6] h-screen px-8 py-4"
+	>
+		<div id="app" class="flex flex-col items-center relative">
+			<header class="self-start">
+				<span
+					class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#EB568E] to-[#144EE3]"
+					>Linkly</span
+				>
+			</header>
+			<main
+				class="text-center pt-16 sm:pt-40 flex flex-col items-center gap-4"
+			>
+				<h1
+					class="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#144EE3] via-[#EB568E] to-[#144EE3] pb-4"
+				>
+					Shorten Your Long Links
+				</h1>
+				<h2 class="w-[32ch] md:w-[65ch]">
+					Linkly is an efficient and easy-to-use URL shortening service
+					that streamlines your online experience.
+				</h2>
+				<form
+					class="bg-[#181E29] border-4 border-[#353C4A] rounded-[48px] py-1 pr-1 pl-4 grid grid-cols-[auto,1fr,auto] md:grid-cols-[auto,400px,auto]"
+				>
+					<span class="material-symbols-outlined self-center">link</span>
+					<input
+						id="link"
+						type="text"
+						class="bg-transparent focus:outline-none pl-4"
+						placeholder="Enter the link here"
+						autocomplete="off"
+					/>
+					<button
+						id="shorten"
+						class="text-white rounded-[48px] bg-[#144EE3] py-5 px-6 min-w-[70px] duration-200 lg:hover:bg-[#144EE3]/80"
+					>
+						<span class="hidden md:block">Shorten Now!</span>
+						<span class="md:hidden">-></span>
+					</button>
+				</form>
+				<p id="invalidLink" class="text-red-600"></p>
+			</main>
+			<table id="table" class="table-fixed rounded mt-12 relative"></table>
+			<span
+				id="notification"
+				class="fixed right-4 md:right-8 md:top-8 bg-[#181E29] px-8 py-4 rounded hidden"
+			>
+			</span>
+			<div
+				id="modal"
+				class="fixed bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full items-center justify-center mt-[-15px] hidden"
+			>
+				<div
+					id="modalBody"
+					class="bg-white p-3 md:p-6 rounded flex flex-col justify-center gap-4 text-black"
+				></div>
+			</div>
+		</div>
+	</body>
+</html>
