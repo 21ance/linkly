@@ -1,17 +1,20 @@
 {
-  "name": "linkly",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.26",
-    "tailwindcss": "^3.3.3",
-    "vite": "^4.4.0"
-  }
+	"homepage": "https://21ance.github.io/<repo>/",
+	"name": "linkly",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.14",
+		"postcss": "^8.4.26",
+		"tailwindcss": "^3.3.3",
+		"vite": "^4.4.0"
+	}
 }
